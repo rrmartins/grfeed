@@ -3,9 +3,12 @@ package main
 import (
 	"fmt"
 	rss "imartins/parserss/parse"
+	"time"
 )
 
 func main() {
+	timestart := time.Now()
+
 	fmt.Println("Starting get")
 	url := "http://golangweekly.com/rss/1g2bo910"
 	parserss := rss.New(url)
@@ -16,5 +19,9 @@ func main() {
 	for i := 0; i < len(parserss.GetCategories()); i++ {
 		fmt.Printf("The Categories is %s\n", parserss.GetCategories()[i])
 	}
-	fmt.Printf("The total of Items is: %d", parserss.GetTotalItems())
+	fmt.Printf("The total of Items is: %d\n\n", parserss.GetTotalItems())
+
+	timeend := time.Now()
+	fmt.Printf("Benchmark: %s\n", timeend.Sub(timestart))
+
 }
