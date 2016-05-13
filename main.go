@@ -16,8 +16,10 @@ func main() {
 	fmt.Printf("The Title is: %s\n", parserss.GetTitle())
 	fmt.Printf("The Description is: %s\n", parserss.GetDescription())
 	fmt.Printf("The Link is: %s\n", parserss.GetLink())
-	for i := 0; i < len(parserss.GetCategories()); i++ {
-		fmt.Printf("The Categories is %s\n", parserss.GetCategories()[i])
+
+	categories := parserss.GetCategories()
+	for i := 0; i < len(categories); i++ {
+		fmt.Printf("The Categories is %s\n", categories[i])
 	}
 	fmt.Printf("The total of Items is: %d\n\n", parserss.GetTotalItems())
 
